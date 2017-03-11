@@ -1,0 +1,85 @@
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+%%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{ \normalfont\scshape}
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty 
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+\author{Henrique Aires Silva \\RA: 169574 \\ Turma T}
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\title{
+  \usefont{OT1}{bch}{b}{n}
+  \normalfont \normalsize \textsc{FEEC - Faculdade de Engenharia Elétrica e de Computação} \\
+  \normalfont \normalsize EA871 - Lab. de Programação Básica de Sistemas Digitais
+  \horrule{0.5pt} \\[0.1cm]
+  \LARGE Relatório do Experimento 1\\Introdução ao Hardware (FRDM KL25 e shield EA871) \\
+  \horrule{2pt} \\[0.5cm]
+}
+
+\author{
+  \normalfont 								\normalsize
+  Henrique Aires Silva\\ \normalfont \normalsize RA: 169574 - Turma T\\[-3pt]		\normalsize
+  \today
+}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Questão 3}
+\textbf{Vamos praticar mais o que acabamos de ver? Quais alterações você faria no programa 4 para substituir a cor vermelha pela cor verde do led RGB, para alternar o estado do led com uso de GPIOx\_PTOR e para evitar uso desnecessário do qualificador volatile ?}
+
+Para alterar a cor do LED verde ao invés do vermelho, devemos configurar e atuar no pino correspondente a ele (PORTB\_19).
+Primeiro, devemos criar outra macro para controlar o MUX do pino 19 do Port B, do seguinte modo:
+
+\begin{verbatim}
+/*! MUX do pino PTB19 (Reg. PORTB_PCR19) */
+#define PORTB_PCR19 (*(unsigned int volatile *) 0x4004A04C)
+\end{verbatim}
+
+Então devemos definir a macro \texttt{GPIOB\_PTOR} para o endereço de memória do mesmo no microcontrolador:
+\begin{verbatim}
+/*! Inverte o estado do bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
+#define GPIOB_PTOR (*(unsigned int volatile *) 0x400FF04C)
+\end{verbatim}
+
+Na função \texttt{main} devemos configurar o pino 19 da Port B como GPIO usando o registrador \texttt{PORTB\_PCR19} e sua direção como saída pelo registrador \texttt{GPIOB\_PDDR}:
+\begin{verbatim}
+	PORTB_PCR19 = PORTB_PCR19 & 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTB19 */
+	PORTB_PCR19 = PORTB_PCR19 | 0x00000100; /*! Configura PTB19 como GPIO (seta bit 8) */
+	GPIOB_PDDR  = GPIOB_PDDR  | (1<<19);    /*! Seta direção do PTB19 como saída */
+\end{verbatim}
+
+Dentro do laço eterno da função \texttt{main}, escrevemos no bit 19 do registrador \texttt{GPIOB\_PTOR} para inverter o estado do pino 19 e aplicamos um delay para percepção visual:
+\begin{verbatim}
+ for(;;)
+ {
+     GPIOB_PTOR = (1<<19); /*! Inverte estado da saída 19 (LED verde) */
+     delay(500000);        /*! Espera um tempo */
+ }
+\end{verbatim}
+
+\section*{Questão 4}
+\textbf{Vamos ver se você entendeu? Escreva um programa em C, bem documentado, que controla as piscadas simultâneas dos 3 leds R, G e B, de forma que a luz resultante seja branca, com três modificações:
+  \\a) só usar qualificador \texttt{volatile} em casos estritamente necessários,
+  \\b) os leds devem ser inicializados com o estado “apagado”, e
+  \\c) usar a função \texttt{GPIOx\_PTOR} para alternar o estado dos leds }
+
+
+
+\end{document}
