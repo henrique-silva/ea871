@@ -3,7 +3,7 @@
  * @brief Pisca-pisca de um led rgb na cor branca
  *
  * @mainpage Projeto de Pisca-Pisca RGB Branco
- * Projeto referente ao Roteiro 1 da disciplina EA871
+ * Projeto referente ao Roteiro 1 da disciplina EA871, baseado no modelo fornecido por Wu, Shin-Ting
  *
  * @author Henrique Aires Silva
  * @date 15/03/2017
