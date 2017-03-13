@@ -58,12 +58,12 @@ int main( void)
     PORTB_PCR19 &= 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTB19 */
     PORTB_PCR19 |= 0x00000100; /*! Seta bit 8 do MUX de PTB19, assim os 3 bits de MUX ser&atilde;o 001 = fun&ccedil;&atilde;o GPIO */
 
-    PORTD_PCR1 &= 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTB1 */
-    PORTD_PCR1 |= 0x00000100; /*! Seta bit 8 do MUX de PTB1, assim os 3 bits de MUX ser&atilde;o 001 = fun&ccedil;&atilde;o GPIO */
+    PORTD_PCR1 &= 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTD1 */
+    PORTD_PCR1 |= 0x00000100; /*! Seta bit 8 do MUX de PTD1, assim os 3 bits de MUX ser&atilde;o 001 = fun&ccedil;&atilde;o GPIO */
 
-    GPIOB_PDDR |= (1<<18);    /*! Seta dire&ccedil;&atilde;o do pino 18 de PORTB como sa&iacute;da */
-    GPIOB_PDDR |= (1<<18);    /*! Seta dire&ccedil;&atilde;o do pino 19 de PORTB como sa&iacute;da */
-    GPIOD_PDDR |= (1<<1);    /*! Seta dire&ccedil;&atilde;o do pino 1 de PORTD como sa&iacute;da */
+    GPIOB_PDDR |= (1 << 18);    /*! Seta dire&ccedil;&atilde;o do pino 18 de PORTB como sa&iacute;da */
+    GPIOB_PDDR |= (1 << 19);    /*! Seta dire&ccedil;&atilde;o do pino 19 de PORTB como sa&iacute;da */
+    GPIOD_PDDR |= (1 << 1);    /*! Seta dire&ccedil;&atilde;o do pino 1 de PORTD como sa&iacute;da */
 
     /*! Inicializa os LEDs apagados (nível lógico 1) */
     GPIOB_PSOR = (1 << 18);
