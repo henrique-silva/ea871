@@ -50,7 +50,7 @@ void delay( unsigned int i)
  */
 int main( void)
 {
-    SIM_SCGC5 |= (1<<10) | (1<<12);    /*!  Habilita clock GPIO do PORTB (bit 10) e PORTD (bit 12) */
+    SIM_SCGC5 |= ((1<<10) | (1<<12));    /*!  Habilita clock GPIO do PORTB (bit 10) e PORTD (bit 12) */
 
     PORTB_PCR18 &= 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTB18 */
     PORTB_PCR18 |= 0x00000100; /*! Seta bit 8 do MUX de PTB18, assim os 3 bits de MUX ser&atilde;o 001 = fun&ccedil;&atilde;o GPIO */
