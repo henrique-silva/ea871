@@ -80,7 +80,8 @@ void led_init( led_color_t color )
 
 void led_init_rgb( void )
 {
-    for( uint8_t i = 0; i < MAX_LED_RGB; i++) {
-	led_init( i );
+    uint8_t led_count;
+	for( led_count = 0; led_count < MAX_LED_RGB ; led_count++) {
+        led_init( led_count );
     }
 }
