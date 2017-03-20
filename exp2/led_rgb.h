@@ -19,19 +19,19 @@
 #define GPIOD_PDDR  (*(uint32_t *) 0x400FF0D4)
 
 /*! Inverte o estado bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
-#define GPIOB_PTOR  (*(unsigned int *) 0x400FF04C)
+#define GPIOB_PTOR  ((uint32_t *) 0x400FF04C)
 /*! Inverte o estado bit nos pinos da porta PORTD (Reg. GPIOD_PTOR) */
-#define GPIOD_PTOR  (*(unsigned int *) 0x400FF0CC)
+#define GPIOD_PTOR  ((uint32_t *) 0x400FF0CC)
 
 /*! Seta o bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
-#define GPIOB_PSOR  (*(unsigned int *) 0x400FF044)
+#define GPIOB_PSOR  ((uint32_t *) 0x400FF044)
 /*! Seta o bit nos pinos da porta PORTD (Reg. GPIOD_PTOR) */
-#define GPIOD_PSOR  (*(unsigned int *) 0x400FF0C4)
+#define GPIOD_PSOR  ((uint32_t *) 0x400FF0C4)
 
 /*! Limpa o bit nos pinos da porta PORTB (Reg. GPIOB_PCOR) */
-#define GPIOB_PCOR  (*(unsigned int *) 0x400FF048)
+#define GPIOB_PCOR  ((uint32_t *) 0x400FF048)
 /*! Limpa o bit nos pinos da porta PORTD (Reg. GPIOD_PCOR) */
-#define GPIOD_PCOR  (*(unsigned int *) 0x400FF0C8)
+#define GPIOD_PCOR  ((uint32_t *) 0x400FF0C8)
 
 /* Definição do bit correspondente ao pino do LED vermelho (bit 18 da porta B) */
 #define LED_RED_PIN (1<<18)
@@ -44,9 +44,9 @@
  * @brief Estrutura que guarda as informa&ccedil;&otilde;es dos registradores que controlam cada cor do LED RGB
  */
 typedef struct led {
-    uint32_t psor;    /*!< Registrador PSOR (seta o bit) */
-    uint32_t pcor;    /*!< Registrador PCOR (limpa o bit) */
-    uint32_t ptor;    /*!< Registrador PTOR (inverte o bit) */
+    uint32_t *psor;    /*!< Registrador PSOR (seta o bit) */
+    uint32_t *pcor;    /*!< Registrador PCOR (limpa o bit) */
+    uint32_t *ptor;    /*!< Registrador PTOR (inverte o bit) */
     uint32_t pin;     /*!< N&uacute;mero do pino dentro do registrador */
 } led_t;
 

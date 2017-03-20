@@ -32,17 +32,17 @@ led_t led_rgb[3] = {
 
 void led_on( led_color_t color )
 {
-    led_rgb[color].pcor = led_rgb[color].pin;
+    *(led_rgb[color].pcor) = led_rgb[color].pin;
 }
 
 void led_off( led_color_t color )
 {
-    led_rgb[color].psor = led_rgb[color].pin;
+    *(led_rgb[color].psor) = led_rgb[color].pin;
 }
 
 void led_toggle( led_color_t color )
 {
-    led_rgb[color].ptor = led_rgb[color].pin;
+    *(led_rgb[color].ptor) = led_rgb[color].pin;
 }
 
 void led_init( led_color_t color )
