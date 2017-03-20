@@ -1,20 +1,22 @@
 #ifndef LED_RGB_H_
 #define LED_RGB_H_
 
+#include <stdint.h>
+
 /*! Habilita as portas do GPIO (Reg. SIM_SCGC5) */
-#define SIM_SCGC5   (*(unsigned int *) 0x40048038)
+#define SIM_SCGC5   (*(uint32_t *) 0x40048038)
 
 /*! MUX do pino PTB18 (Reg. PORTB_PCR18) */
-#define PORTB_PCR18 (*(unsigned int *) 0x4004A048)
+#define PORTB_PCR18 (*(uint32_t *) 0x4004A048)
 /*! MUX do pino PTB18 (Reg. PORTB_PCR18) */
-#define PORTB_PCR19 (*(unsigned int *) 0x4004A04C)
+#define PORTB_PCR19 (*(uint32_t *) 0x4004A04C)
 /*! MUX do pino PTD1 (Reg. PORTD_PCR1) */
-#define PORTD_PCR1  (*(unsigned int *) 0x4004C004)
+#define PORTD_PCR1  (*(uint32_t *) 0x4004C004)
 
 /*!  Dire&ccedil;&atilde;o dos dados nos pinos da porta PORTB (Reg. GPIOB_PDDR) */
-#define GPIOB_PDDR  (*(unsigned int *) 0x400FF054)
+#define GPIOB_PDDR  (*(uint32_t *) 0x400FF054)
 /*!  Dire&ccedil;&atilde;o dos dados nos pinos da porta PORTD (Reg. GPIOD_PDDR) */
-#define GPIOD_PDDR  (*(unsigned int *) 0x400FF0D4)
+#define GPIOD_PDDR  (*(uint32_t *) 0x400FF0D4)
 
 /*! Inverte o estado bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
 #define GPIOB_PTOR  (*(unsigned int *) 0x400FF04C)

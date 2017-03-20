@@ -10,6 +10,7 @@
 #ifndef DELAY_H_
 #define DELAY_H_
 
+#include <stdint.h>
 /*!
  * @brief gera um atraso correspondente a i itera&ccedil;&otilde;es
  * @param [in] ticks N&uacute;mero de itera&ccedil;&otilde;es
