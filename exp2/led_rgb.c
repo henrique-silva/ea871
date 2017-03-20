@@ -53,21 +53,21 @@ void led_init( led_color_t color )
 	SIM_SCGC5 |= ( 1 << 10 ); /*!  Habilita clock GPIO do PORTB (bit 10) */
 	PORTB_PCR18 &= 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTB18 */
 	PORTB_PCR18 |= 0x00000100; /*! Seta bit 8 do MUX de PTB18, assim os 3 bits de MUX ser&atilde;o 001 = fun&ccedil;&atilde;o GPIO */
-	GPIOB_PDDR |= (1 << 18);    /*! Seta dire&ccedil;&atilde;o do pino 18 de PORTB como sa&iacute;da */
+	GPIOB_PDDR |= (LED_RED_PIN);    /*! Seta dire&ccedil;&atilde;o do pino 18 de PORTB como sa&iacute;da */
 	break;
 
     case LED_GREEN:
 	SIM_SCGC5 |= ( 1 << 10 ); /*!  Habilita clock GPIO do PORTB (bit 10) */
 	PORTB_PCR19 &= 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTB19 */
 	PORTB_PCR19 |= 0x00000100; /*! Seta bit 8 do MUX de PTB19, assim os 3 bits de MUX ser&atilde;o 001 = fun&ccedil;&atilde;o GPIO */
-	GPIOB_PDDR |= (1 << 19);    /*! Seta dire&ccedil;&atilde;o do pino 19 de PORTB como sa&iacute;da */
+	GPIOB_PDDR |= (LED_GREEN_PIN);    /*! Seta dire&ccedil;&atilde;o do pino 19 de PORTB como sa&iacute;da */
 	break;
 
     case LED_BLUE:
 	SIM_SCGC5 |= ( 1 << 12 ); /*!  Habilita clock GPIO do PORTD (bit 12) */
 	PORTD_PCR1 &= 0xFFFFF8FF; /*! Zera bits 10, 9 e 8 (MUX) de PTD1 */
 	PORTD_PCR1 |= 0x00000100; /*! Seta bit 8 do MUX de PTD1, assim os 3 bits de MUX ser&atilde;o 001 = fun&ccedil;&atilde;o GPIO */
-	GPIOD_PDDR |= (1 << 1);    /*! Seta dire&ccedil;&atilde;o do pino 1 de PORTD como sa&iacute;da */
+	GPIOD_PDDR |= (LED_BLUE_PIN);    /*! Seta dire&ccedil;&atilde;o do pino 1 de PORTD como sa&iacute;da */
 	break;
 
     default:
