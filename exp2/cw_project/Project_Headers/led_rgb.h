@@ -1,43 +1,51 @@
+/*!
+ * @file led_rgb.h
+ * @brief Abstra&ccedil;&atilde;o do m&oacute;dulo de controle do LED RGB
+ *
+ * @author Henrique Aires Silva
+ *
+ */
+
 #ifndef LED_RGB_H_
 #define LED_RGB_H_
 
 #include <stdint.h>
 
-/*! Habilita as portas do GPIO (Reg. SIM_SCGC5) */
+/*! @brief Registrador que habilita as portas do GPIO (Reg. SIM_SCGC5) */
 #define SIM_SCGC5   (*(uint32_t *) 0x40048038)
 
-/*! MUX do pino PTB18 (Reg. PORTB_PCR18) */
+/*! @brief MUX do pino PTB18 (Reg. PORTB_PCR18) */
 #define PORTB_PCR18 (*(uint32_t *) 0x4004A048)
-/*! MUX do pino PTB18 (Reg. PORTB_PCR18) */
+/*! @brief MUX do pino PTB18 (Reg. PORTB_PCR18) */
 #define PORTB_PCR19 (*(uint32_t *) 0x4004A04C)
-/*! MUX do pino PTD1 (Reg. PORTD_PCR1) */
+/*! @brief MUX do pino PTD1 (Reg. PORTD_PCR1) */
 #define PORTD_PCR1  (*(uint32_t *) 0x4004C004)
 
-/*!  Dire&ccedil;&atilde;o dos dados nos pinos da porta PORTB (Reg. GPIOB_PDDR) */
+/*!  @brief Dire&ccedil;&atilde;o dos dados nos pinos da porta PORTB (Reg. GPIOB_PDDR) */
 #define GPIOB_PDDR  (*(uint32_t *) 0x400FF054)
-/*!  Dire&ccedil;&atilde;o dos dados nos pinos da porta PORTD (Reg. GPIOD_PDDR) */
+/*!  @brief Dire&ccedil;&atilde;o dos dados nos pinos da porta PORTD (Reg. GPIOD_PDDR) */
 #define GPIOD_PDDR  (*(uint32_t *) 0x400FF0D4)
 
-/*! Inverte o estado bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
+/*! @brief Inverte o estado bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
 #define GPIOB_PTOR  ((uint32_t *) 0x400FF04C)
-/*! Inverte o estado bit nos pinos da porta PORTD (Reg. GPIOD_PTOR) */
+/*! @brief Inverte o estado bit nos pinos da porta PORTD (Reg. GPIOD_PTOR) */
 #define GPIOD_PTOR  ((uint32_t *) 0x400FF0CC)
 
-/*! Seta o bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
+/*! @brief Seta o bit nos pinos da porta PORTB (Reg. GPIOB_PTOR) */
 #define GPIOB_PSOR  ((uint32_t *) 0x400FF044)
-/*! Seta o bit nos pinos da porta PORTD (Reg. GPIOD_PTOR) */
+/*! @brief Seta o bit nos pinos da porta PORTD (Reg. GPIOD_PTOR) */
 #define GPIOD_PSOR  ((uint32_t *) 0x400FF0C4)
 
-/*! Limpa o bit nos pinos da porta PORTB (Reg. GPIOB_PCOR) */
+/*! @brief Limpa o bit nos pinos da porta PORTB (Reg. GPIOB_PCOR) */
 #define GPIOB_PCOR  ((uint32_t *) 0x400FF048)
-/*! Limpa o bit nos pinos da porta PORTD (Reg. GPIOD_PCOR) */
+/*! @brief Limpa o bit nos pinos da porta PORTD (Reg. GPIOD_PCOR) */
 #define GPIOD_PCOR  ((uint32_t *) 0x400FF0C8)
 
-/* Definição do bit correspondente ao pino do LED vermelho (bit 18 da porta B) */
+/*! @brief Definição do bit correspondente ao pino do LED vermelho (bit 18 da porta B) */
 #define LED_RED_PIN (1<<18)
-/* Definição do bit correspondente ao pino do LED verde (bit 19 da porta B) */
+/*! @brief Definição do bit correspondente ao pino do LED verde (bit 19 da porta B) */
 #define LED_GREEN_PIN (1<<19)
-/* Definição do bit correspondente ao pino do LED azul (bit 1 da porta D) */
+/*! @brief Definição do bit correspondente ao pino do LED azul (bit 1 da porta D) */
 #define LED_BLUE_PIN (1<<1)
 
 /*!
