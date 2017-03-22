@@ -1,6 +1,6 @@
 /*!
  * @file led_rgb.c
- * @brief Módulo de controle do LED RGB
+ * @brief M&oacute;dulo de controle do LED RGB
  *
  * @author Henrique Aires Silva
  * @date 22/03/2017
@@ -74,7 +74,7 @@ void led_init( led_color_t color )
 	return;
     }
 
-    /*! Inicializa o LED apagado (nível lógico 1) */
+    /*! Inicializa o LED apagado (n&iacute;vel l&oacute;gico 1) */
     led_off(color);
 }
 

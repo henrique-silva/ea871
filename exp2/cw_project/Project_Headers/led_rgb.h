@@ -41,11 +41,11 @@
 /*! @brief Limpa o bit nos pinos da porta PORTD (Reg. GPIOD_PCOR) */
 #define GPIOD_PCOR  ((uint32_t *) 0x400FF0C8)
 
-/*! @brief Definição do bit correspondente ao pino do LED vermelho (bit 18 da porta B) */
+/*! @brief Defini&ccedil;&atilde;o do bit correspondente ao pino do LED vermelho (bit 18 da porta B) */
 #define LED_RED_PIN (1<<18)
-/*! @brief Definição do bit correspondente ao pino do LED verde (bit 19 da porta B) */
+/*! @brief Defini&ccedil;&atilde;o do bit correspondente ao pino do LED verde (bit 19 da porta B) */
 #define LED_GREEN_PIN (1<<19)
-/*! @brief Definição do bit correspondente ao pino do LED azul (bit 1 da porta D) */
+/*! @brief Defini&ccedil;&atilde;o do bit correspondente ao pino do LED azul (bit 1 da porta D) */
 #define LED_BLUE_PIN (1<<1)
 
 /*!
@@ -69,16 +69,15 @@ typedef enum led_color {
 } led_color_t;
 
 /*!
- * @brief Configura e inicializa apagada uma das cores do LED RGB (deve ser chamada uma vez antes das outras funções de controle do LED)
+ * @brief Configura e inicializa apagada uma das cores do LED RGB (deve ser chamada uma vez antes das outras fun&ccedil;&otilde;es de controle do LED)
  * @param [in] color Cor do LED a ser inicializada
  */
 void led_init( led_color_t color );
 
 /*!
- * @brief Configura e inicializa apagada todas as cores do LED RGB (deve ser chamada uma vez antes das outras funções de controle do LED)
+ * @brief Configura e inicializa apagada todas as cores do LED RGB (deve ser chamada uma vez antes das outras fun&ccedil;&otilde;es de controle do LED)
  */
 void led_init_rgb( void );
-
 
 /*!
  * @brief Acende uma das cores do LED RGB
